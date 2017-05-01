@@ -1,0 +1,61 @@
+/*
+Kassari Anastasia
+3130088
+*/
+
+.main{
+	height: auto;
+	width: 290px;
+	border: 2px solid;
+	border-radius: 3px;
+	border-color: #00264d;
+	color: white;
+	background-color: #99bbff;
+	font-family: Verdana, Geneva, sans-serif;
+	
+}
+
+.main div {
+	margin-top: 8px;
+	margin-bottom: 5px;
+	
+}
+
+#result {
+	height: auto;
+	width: 270px;
+	color: black;
+	border-style: none;
+	background-color: #ababab;
+	text-align: right;
+	font-size: 1.3em;
+}
+
+button {
+	background-color: #ababab;
+	border-radius: 5px;
+	border-style: none;
+	font-size: 1.1em;
+	margin: 2px 0px 2px 1px;
+	width: 40px;
+	height: 40px;
+	
+}
+
+#special_calc button{
+	background-color: #00b38f;	
+	color: white;
+	width: 40px;
+	height: 40px;
+}
+
+#basic_calc button{
+	background-color: black;
+	color: white;
+	width: 55px;
+	height: 50px;	
+}
+
+#equal, #delete, #clear {
+	background-color: red !important;
+}
