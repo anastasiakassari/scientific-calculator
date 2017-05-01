@@ -1,4 +1,4 @@
-# scientific-calculator
+# Scientific Calculator
 
   Created by: Anastasia Kassari
   
