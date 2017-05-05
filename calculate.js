@@ -247,7 +247,7 @@ function diastole(){
 function basic(operator){	
 	display = document.getElementById("result");
 	if (op == "") {
-		initial_val = temp;
+		initial_val = display.value;
 		op = operator;
 	}
 	else {
@@ -269,8 +269,11 @@ function equal(){
 	if (completed && op!="") {
 		if (op =="^")
 			answer = Math.pow(initial_val, display.value);
-		else
+		else {
+			console.log(initial_val + op + display.value);
 			answer = eval(initial_val + op + display.value);
+			console.log(answer);
+		}
 		reset(answer);
 	}
 }
