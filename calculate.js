@@ -1,52 +1,130 @@
 //Kassari Anastasia
 //3130088
 
-const PREC = 10;
+const PREC = 12;
 var initial_val = "", op = "", answer ="0";
 var done = true, float_num = false, second_num = false, completed = false ;
 var temp, display;
 
 window.onload = function() {
-	document.getElementById("one").addEventListener("click", function(){ number("1"); });
-	document.getElementById("two").addEventListener("click", function(){ number("2"); });
-	document.getElementById("three").addEventListener("click", function(){ number("3"); });
-	document.getElementById("four").addEventListener("click", function(){ number("4"); });
-	document.getElementById("five").addEventListener("click", function(){ number("5"); });
-	document.getElementById("six").addEventListener("click", function(){ number("6"); });
-	document.getElementById("seven").addEventListener("click", function(){ number("7"); });
-	document.getElementById("eight").addEventListener("click", function(){ number("8"); });
-	document.getElementById("nine").addEventListener("click", function(){ number("9"); });
-	document.getElementById("zero").addEventListener("click", function(){ number("0"); });
-	
-	document.getElementById("pi").addEventListener("click", pi);
-	document.getElementById("e").addEventListener("click", e);
-	
-	document.getElementById("sin").addEventListener("click", sin);
-	document.getElementById("cos").addEventListener("click", cos);
-	document.getElementById("tan").addEventListener("click", tan);
-	
-	document.getElementById("log").addEventListener("click", log);
-	document.getElementById("ln").addEventListener("click", ln);
-	document.getElementById("power2").addEventListener("click", power2);
-	document.getElementById("base10").addEventListener("click", base10);
-	document.getElementById("exp").addEventListener("click", exp);
-	document.getElementById("sqrt").addEventListener("click", sqrt);
-	document.getElementById("factorial").addEventListener("click", factorial);
-	document.getElementById("fraction").addEventListener("click", fraction);
-	
-	document.getElementById("percent").addEventListener("click", percent);	
-	document.getElementById("add").addEventListener("click", function(){ basic("+"); });
-	document.getElementById("sub").addEventListener("click", function(){ basic("-"); });
-	document.getElementById("mul").addEventListener("click", function(){ basic("*"); });
-	document.getElementById("div").addEventListener("click", function(){ basic("/"); });
-	document.getElementById("powerY").addEventListener("click", function(){ basic("^"); });
-	
-	document.getElementById("diastole").addEventListener("click", diastole);
-	document.getElementById("sign").addEventListener("click", sign);
-	document.getElementById("equal").addEventListener("click", equal);
-	document.getElementById("clear").addEventListener("click", function() { reset("0");});
-	document.getElementById("delete").addEventListener("click", del);
-	document.getElementById("answ").addEventListener("click", answ);
+	var elements = document.body.getElementsByTagName("*");
+	for (var i =0; i < elements.length; i++) {
+		switch (elements[i].id) {
+			case "one": 
+				elements[i].addEventListener("click", function(){ number("1"); });
+				break;
+			case "two": 
+				elements[i].addEventListener("click", function(){ number("2"); });
+				break;
+			case "three": 
+				elements[i].addEventListener("click", function(){ number("3"); });
+				break;
+			case "four": 
+				elements[i].addEventListener("click", function(){ number("4"); });
+				break;
+			case "five": 
+				elements[i].addEventListener("click", function(){ number("5"); });
+				break;
+			case "six": 
+				elements[i].addEventListener("click", function(){ number("6"); });
+				break;
+			case "seven": 
+				elements[i].addEventListener("click", function(){ number("7"); });
+				break;
+			case "eight": 
+				elements[i].addEventListener("click", function(){ number("8"); });
+				break;
+			case "nine": 
+				elements[i].addEventListener("click", function(){ number("9"); });
+				break;
+			case "zero": 
+				elements[i].addEventListener("click", function(){ number("0"); });
+				break;
+				
+			case "pi":
+				elements[i].addEventListener("click", pi);
+				break;
+			case "e":
+				elements[i].addEventListener("click", e);
+				break;
+			
+			case "sin":
+				elements[i].addEventListener("click", sin);
+				break;
+			case "cos":
+				elements[i].addEventListener("click", cos);
+				break;
+			case "tan":
+				elements[i].addEventListener("click", tan);
+				break;
+			
+			case "log":
+				elements[i].addEventListener("click", log);
+				break;
+			case "ln":
+				elements[i].addEventListener("click", ln);
+				break;
+			case "power2":
+				elements[i].addEventListener("click", power2);
+				break;
+			case "base10":
+				elements[i].addEventListener("click", base10);
+				break;
+			case "exp":
+				elements[i].addEventListener("click", exp);
+				break;
+			case "sqrt":
+				elements[i].addEventListener("click", sqrt);
+				break;
+			case "factorial":
+				elements[i].addEventListener("click", factorial);
+				break;
+			case "fraction":
+				elements[i].addEventListener("click", fraction);
+				break;
+			
+			case "percent":
+				elements[i].addEventListener("click", percent);	
+				break;
+			case "add":
+				elements[i].addEventListener("click", function(){ basic("+"); });
+				break;
+			case "sub":
+				elements[i].addEventListener("click", function(){ basic("-"); });
+				break;
+			case "mul":
+				elements[i].addEventListener("click", function(){ basic("*"); });
+				break;
+			case "div":
+				elements[i].addEventListener("click", function(){ basic("/"); });
+				break;
+			case "powerY":
+				elements[i].addEventListener("click", function(){ basic("^"); });
+				break;
+			
+			case "diastole":
+				elements[i].addEventListener("click", diastole);
+				break;
+			case "sign":
+				elements[i].addEventListener("click", sign);
+				break;
+			case "equal":
+				elements[i].addEventListener("click", equal);
+				break;
+			case "clear":
+				elements[i].addEventListener("click", function() { reset("0");});
+				break;
+			case "delete":
+				elements[i].addEventListener("click", del);
+				break;
+			case "answ":
+				elements[i].addEventListener("click", answ);
+				break;
+			default:
+				break;
+		}
+	}
+	/*  */
 }
 
 function number(input){
@@ -69,29 +147,33 @@ function number(input){
 	}
 	display.value = temp;
 	completed = true;
+	toExp();
 }
 
 // Number pi
 function pi(){
 	display = document.getElementById("result");
-	display.value = Math.PI.toPrecision(PREC);
+	display.value = Math.PI;
 	completed = true;
 	answer = display.value;
+	toExp();
 }
 
 //Number e
 function e(){
 	display = document.getElementById("result");
-	display.value = Math.E.toPrecision(PREC);
-	completed = true;
+	display.value = Math.E
+	completed = true;;
 	answer = display.value;
+	toExp()
 }
 
 //Return answer
 function answ() {
 	display = document.getElementById("result");
 	display.value = answer;
-	completed = true;	
+	completed = true;
+	toExp();	
 }
 
 /*
@@ -103,11 +185,14 @@ function sin(){
 	temp = document.getElementsByName("angle");
 	if (temp[0].checked)
 		answer *= Math.PI/180;
-	if (answer == "")
-		answer = Math.sin(0);
-	else	
-		answer = Math.sin(answer);
-	answer = answer.toPrecision(PREC);
+	if (temp[1].checked && answer == Math.PI)
+		answer = 0;
+	else { 
+		if (answer == "")
+			answer = Math.sin(0);
+		else	
+			answer = Math.sin(answer);
+	}
 	reset(answer);
 }
 
@@ -120,7 +205,6 @@ function cos(){
 		answer = Math.cos(0);
 	else	
 		answer = Math.cos(answer);
-	answer = answer.toPrecision(PREC);
 	reset(answer);
 }
 
@@ -129,101 +213,81 @@ function tan(){
 	temp = document.getElementsByName("angle");
 	if (temp[0].checked)
 		answer *= Math.PI/180;
-	if (answer == "")
-		answer = Math.tan(0);
-	else	
-		answer = Math.tan(answer);
-	answer = answer.toPrecision(PREC);
+	if (temp[1].checked && answer == Math.PI)
+		answer = 0;
+	else {
+		if (answer == "")
+			answer = Math.tan(0);
+		else	
+			answer = Math.tan(answer);
+	}
 	reset(answer);
 }
 
 //Function log(x)
 function log() {
 	display = document.getElementById("result");
-	temp = Math.log(display.value) / Math.LN10;
-	if (temp === parseInt(temp, 10))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	answer = Math.log(display.value) / Math.LN10;
+	answer = (answer*1).toString();
 	reset(answer);
 }
 
 //Function ln(x)
 function ln() {
 	display = document.getElementById("result");
-	temp = Math.log(display.value);
-	if (temp === parseInt(temp, 10))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	answer = Math.log(display.value);
+	answer = (answer*1).toString();
 	reset(answer);
 }
 
 //Function x^2
 function power2() {
 	display = document.getElementById("result");
-	temp = Math.pow(display.value, 2);
-	if ((temp === parseInt(temp, 10)) && (temp.toString().length <= (PREC+2) ))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	answer = Math.pow(display.value, 2);
+	answer = (answer*1).toString();
 	reset(answer);
 }
 
 //Function 10^x
 function base10() {
 	display = document.getElementById("result");
-	temp = Math.pow(10, display.value);
-	if ((temp === parseInt(temp, 10)) && (temp.toString().length <= (PREC+2) ))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	answer = Math.pow(10, display.value);
+	answer = (answer*1).toString();
 	reset(answer);
 }
 
 //Function e^x
 function exp() {
 	display = document.getElementById("result");
-	temp = Math.pow(Math.E, display.value);
-	if ((temp === parseInt(temp, 10)) && (temp.toString().length <= (PREC+2) ))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	answer = Math.pow(Math.E, display.value);
+	answer = (answer*1).toString();
 	reset(answer);
 }
 
 //Function sqrt(x)
 function sqrt() {
 	display = document.getElementById("result");
-	temp = Math.sqrt(display.value);
-	if ((temp === parseInt(temp, 10)) && (temp.toString().length <= (PREC+2) ))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	answer = Math.sqrt(display.value);
+	answer = (answer*1).toString();
 	reset(answer);
 }
 
 //Function 1/x
 function fraction() {
 	display = document.getElementById("result");
-	temp = eval("1/"+display.value);
-	if ((temp === parseInt(temp, 10)) && (temp.toString().length <= (PREC+2) ))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	answer = eval("1/"+display.value);
+	answer = (answer*1).toString();
 	reset(answer);
 }
 
 //Function x!
 function factorial() {
 	display = document.getElementById("result");
-	temp = fact(display.value);
-	if (temp == 0)
+	answer = fact(display.value);
+	if (answer == 0)
 		answer = "Cannot calculate";
-	else if ((temp === parseInt(temp, 10)) && (temp.toString().length <= (PREC+2) ))
-		answer = (temp*1).toString();
-	else
-		answer = (temp.toPrecision(PREC)*1).toString();
+	else 
+		answer = (answer*1).toString();
 	reset(answer);
 }
 
@@ -234,8 +298,7 @@ function diastole(){
 	if (display.value.match(/[a-z]/i))
 		display.value = "0";
 	if (!float_num) {
-		if (temp.length < PREC-2)
-			temp += ".";
+		temp += ".";
 		display.value = temp;
 		completed = false;
 		float_num = true;
@@ -282,12 +345,10 @@ function equal(){
 function percent(){
 	display = document.getElementById("result");
 	if (op != "") {
-		temp = eval(initial_val+"*"+display.value+"/100");
-		if (temp === parseInt(temp, 10))
-			answer = (temp*1).toString();
-		else
-			answer = (temp.toPrecision(PREC)*1).toString();
+		answer = eval(initial_val+"*"+display.value+"/100");
+		answer = (answer*1).toString();
 		display.value = answer;
+		toExp();
 	}
 	
 }
@@ -302,22 +363,30 @@ function sign(){
 			display.value = "-" + display.value; 
 	}
 	answer = display.value;
+	toExp();
 }
 
 //Delete last input
 function del() {
 	display = document.getElementById("result");
-	if ((display.value.length <= 1) || display.value.match(/[a-z]/i))
+	if ((display.value.length <= 1) || display.value.match(/[a-z]/i)) {
 		display.value = "0";
-	else 
-		display.value = display.value.substr(0, display.value.length-1);
-	answer = display.value;	
+		float_num = false;
+	}
+	else  {
+		if (display.value.substr(display.value.length-1) == ".")
+			float_num = false;
+		display.value = display.value.substr(0, display.value.length-1);		
+	}
+	answer = display.value;
+	toExp();
 }
 
 //Reset display to val and all other properties to initial values
 function reset(val) {
 	//set display value
 	document.getElementById("result").value = val;
+	toExp();
 	//reset all properties
 	initial_val = "";
 	op = "";
@@ -344,5 +413,12 @@ function fact(n) {
 			reset("NaN");
 		}
 	}
+}
+
+//If display value is bigger than PREC digits, we make it in scientific notation
+function toExp() {
+	display = document.getElementById("result");
+	if (display.value.length > PREC)
+		display.value = (Number(display.value).toExponential(PREC)*1).toString();	
 }
 
